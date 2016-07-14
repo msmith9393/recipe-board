@@ -47,7 +47,6 @@ Post MVP
 * delete recipe
 
 Next Time I change the schema
-Add estimated_time to recipes schema
 Add parent_id to categories - foreign key to itself
 Add tags table and tag_recipes
 

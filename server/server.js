@@ -2,6 +2,10 @@ var express = require('express');
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackConfig = require('./../webpack.config.js');
+
+var db = require('./db/database.js').db;
+var addRecipes = require('./db/addRecipes.js');
+
 var app = express();
 
 var compiler = webpack(webpackConfig);
