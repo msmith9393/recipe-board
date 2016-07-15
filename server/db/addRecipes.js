@@ -38,19 +38,14 @@ recipes.forEach((recipe, ind) => {
     if (data) {
       recipe.ingredients.forEach((ingredient, ind2) => {
         var uniqueInd2 = (ind2 + 2) * data.id;
-        res.push(db.oneOrNone('INSERT into $1~($2~, $3~, $4~, $5~) VALUES($6, $7, $8, $9) ON CONFLICT DO NOTHING', ['ingredients_recipes', 'id', 'ingredient_num', 'ingredient_text', 'recipes_id', uniqueInd2, ind2, ingredient, data.id]));
-      });
-      if (res.length === recipe.ingredients.length) {
-        db.tx((t) => {
-          return t.batch(res);
-        })
+        db.oneOrNone('INSERT into $1~($2~, $3~, $4~, $5~) VALUES($6, $7, $8, $9) ON CONFLICT DO NOTHING', ['ingredients_recipes', 'id', 'ingredient_num', 'ingredient_text', 'recipes_id', uniqueInd2, ind2, ingredient, data.id])
         .then(() => {
           console.log('Success in ingredients_recipes');
         })
         .catch((error) => {
           console.error('Error in ingredients_recipes', error);
         });
-      }
+      });
       return data.id;
     }
   })
@@ -59,19 +54,14 @@ recipes.forEach((recipe, ind) => {
     if (id) {
       recipe.steps.forEach((step, ind3) => {
         var uniqueInd3 = (ind3 + 3) * id;
-        res2.push(db.oneOrNone('INSERT into $1~($2~, $3~, $4~, $5~) VALUES($6, $7, $8, $9) ON CONFLICT DO NOTHING', ['steps_recipes', 'id', 'step_num', 'step_text', 'recipes_id', uniqueInd3, ind3, step, id]));
-      });
-      if (res2.length === recipe.steps.length) {
-        db.tx((t) => {
-          return t.batch(res2);
-        })
+        db.oneOrNone('INSERT into $1~($2~, $3~, $4~, $5~) VALUES($6, $7, $8, $9) ON CONFLICT DO NOTHING', ['steps_recipes', 'id', 'step_num', 'step_text', 'recipes_id', uniqueInd3, ind3, step, id])
         .then(() => {
           console.log('Success in steps_recipes');
         })
         .catch((error) => {
           console.error('Error in steps_recipes', error);
         });
-      }
+      });
     }
     return id;
   })
@@ -80,19 +70,14 @@ recipes.forEach((recipe, ind) => {
     if (id) {
       recipe.categories.forEach((cat, ind4) => {
         var uniqueInd4 = (ind4 + 4) * id;
-        db.oneOrNone('INSERT into $1~($2~, $3~) VALUES($4, $5) ON CONFLICT DO NOTHING', ['categories', 'id', 'name', uniqueInd4, cat]);
+        db.oneOrNone('INSERT into $1~($2~, $3~) VALUES($4, $5) ON CONFLICT DO NOTHING', ['categories', 'id', 'name', uniqueInd4, cat])
+        .then(() => {
+          console.log('Success in categories');
+        })
+        .catch((error) => {
+          console.error('Error in categories', error);
+        });
       });
-      if (res3.length === recipe.categories.length) {
-        // db.tx((t) => {
-        //   return t.batch(res3);
-        // })
-        // .then(() => {
-        //   console.log('Success in categories');
-        // })
-        // .catch((error) => {
-        //   console.error('Error in categories', error);
-        // });
-      }
     }
     return id;
   })
@@ -104,24 +89,18 @@ recipes.forEach((recipe, ind) => {
         var uniqueInd5 = (uniqueInd4 + 1) * id;
         db.one('SELECT id from categories where name=$1', [cat])
         .then((data) => {
-          db.oneOrNone('INSERT into $1~($2~, $3~, $4~) VALUES($5, $6, $7) ON CONFLICT DO NOTHING', ['categories_recipes', 'id', 'categories_id', 'recipes_id', uniqueInd5, data.id, id]);
+          db.oneOrNone('INSERT into $1~($2~, $3~, $4~) VALUES($5, $6, $7) ON CONFLICT DO NOTHING', ['categories_recipes', 'id', 'categories_id', 'recipes_id', uniqueInd5, data.id, id])
+          .then(() => {
+            console.log('Success in categories_recipes');
+          })
+          .catch((error) => {
+            console.error('Error in categories', error);
+          });
         })
         .catch((error) => {
           console.error('Error selecting id from categories', error);
         });
       });
-      if (res4.length === recipe.categories.length) {
-        // console.log('HEEEEY');
-        // db.tx((t) => {
-        //   return t.batch(res4);
-        // })
-        // .then(() => {
-        //   console.log('Success in categories_recipes');
-        // })
-        // .catch((error) => {
-        //   console.error('Error in categories', error);
-        // });
-      }
     }
   })
   .then(() => {
