@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
+import Category from './category.js';
 require('./../../styles/main.css');
-
-class Category extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (<div className="category">{this.props.cat}</div>);
-  }
-}
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: ['Main Course', 'Sides', 'Dessert', 'Pasta']
+      categories: ['Pasta', 'Sides', 'Main Course', 'Dessert']
     }
   }
   render() {

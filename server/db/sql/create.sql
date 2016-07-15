@@ -1,27 +1,28 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2016-07-14 03:10:24.576
+-- Last modification date: 2016-07-15 18:57:22.172
 
 -- tables
 -- Table: categories
 CREATE TABLE categories (
     id int  NOT NULL,
     name varchar(100)  NOT NULL,
+    CONSTRAINT unique_name UNIQUE (name) NOT DEFERRABLE  INITIALLY IMMEDIATE,
     CONSTRAINT categories_pk PRIMARY KEY (id)
 );
 
--- Table: categories_recipe
-CREATE TABLE categories_recipe (
+-- Table: categories_recipes
+CREATE TABLE categories_recipes (
     id int  NOT NULL,
     categories_id int  NOT NULL,
     recipes_id int  NOT NULL,
-    CONSTRAINT categories_recipe_pk PRIMARY KEY (id)
+    CONSTRAINT categories_recipes_pk PRIMARY KEY (id)
 );
 
 -- Table: ingredients_recipes
 CREATE TABLE ingredients_recipes (
     id int  NOT NULL,
     ingredient_num int  NOT NULL,
-    ingredient_text varchar(400)  NOT NULL,
+    ingredient_text varchar(600)  NOT NULL,
     recipes_id int  NOT NULL,
     CONSTRAINT ingredients_recipes_pk PRIMARY KEY (id)
 );
@@ -50,7 +51,7 @@ CREATE TABLE recipes (
 CREATE TABLE steps_recipes (
     id int  NOT NULL,
     step_num int  NOT NULL,
-    step_text varchar(200)  NOT NULL,
+    step_text varchar(1000)  NOT NULL,
     recipes_id int  NOT NULL,
     CONSTRAINT steps_recipes_pk PRIMARY KEY (id)
 );
@@ -74,14 +75,6 @@ CREATE TABLE users_comments_recipes (
     CONSTRAINT users_comments_recipes_pk PRIMARY KEY (id)
 );
 
--- Table: users_created_recipes
-CREATE TABLE users_created_recipes (
-    id int  NOT NULL,
-    users_id int  NOT NULL,
-    recipes_id int  NOT NULL,
-    CONSTRAINT users_created_recipes_pk PRIMARY KEY (id)
-);
-
 -- Table: users_favorite_recipes
 CREATE TABLE users_favorite_recipes (
     id int  NOT NULL,
@@ -91,16 +84,16 @@ CREATE TABLE users_favorite_recipes (
 );
 
 -- foreign keys
--- Reference: category_recipe_categories (table: categories_recipe)
-ALTER TABLE categories_recipe ADD CONSTRAINT category_recipe_categories
+-- Reference: category_recipe_categories (table: categories_recipes)
+ALTER TABLE categories_recipes ADD CONSTRAINT category_recipe_categories
     FOREIGN KEY (categories_id)
     REFERENCES categories (id)
     NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
--- Reference: category_recipe_recipes (table: categories_recipe)
-ALTER TABLE categories_recipe ADD CONSTRAINT category_recipe_recipes
+-- Reference: category_recipe_recipes (table: categories_recipes)
+ALTER TABLE categories_recipes ADD CONSTRAINT category_recipe_recipes
     FOREIGN KEY (recipes_id)
     REFERENCES recipes (id)
     NOT DEFERRABLE
@@ -149,22 +142,6 @@ ALTER TABLE users_comments_recipes ADD CONSTRAINT users_comments_recipes_recipes
 
 -- Reference: users_comments_recipes_users (table: users_comments_recipes)
 ALTER TABLE users_comments_recipes ADD CONSTRAINT users_comments_recipes_users
-    FOREIGN KEY (users_id)
-    REFERENCES users (id)
-    NOT DEFERRABLE
-    INITIALLY IMMEDIATE
-;
-
--- Reference: users_created_recipes_Recipes (table: users_created_recipes)
-ALTER TABLE users_created_recipes ADD CONSTRAINT users_created_recipes_Recipes
-    FOREIGN KEY (recipes_id)
-    REFERENCES recipes (id)
-    NOT DEFERRABLE
-    INITIALLY IMMEDIATE
-;
-
--- Reference: users_created_recipes_users (table: users_created_recipes)
-ALTER TABLE users_created_recipes ADD CONSTRAINT users_created_recipes_users
     FOREIGN KEY (users_id)
     REFERENCES users (id)
     NOT DEFERRABLE

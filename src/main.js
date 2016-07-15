@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/app.js';
-import Login from './components/login.js';
+import Categories from './components/categories.js';
 import reducer from './reducers/rootReducer.js';
 
 const middleware = [];
@@ -21,7 +21,7 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route path='/' component={App}>
-        <IndexRoute component={Login} />
+        <IndexRoute component={Categories} />
       </Route>
     </Router>
   </Provider>,

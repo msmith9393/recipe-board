@@ -89,13 +89,13 @@ table {
     width: 100px;
     height: 30px;
     background-color: #29D9C2;
-    margin: 10px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 2px #888; }
 
-@media (max-width: 600px) {
+@media (max-width: 843px) {
   .header-container {
     flex-wrap: wrap; }
     .header-container .search-bar {
@@ -103,5 +103,39 @@ table {
       width: 100%;
       margin: 0 10px;
       margin-bottom: 5px; } }
+.categories-container {
+  font-family: "Lato", "Arial", sans-serif;
+  max-width: 1265px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto; }
+  .categories-container .category {
+    width: 400px;
+    margin: 10px;
+    margin-bottom: -40px; }
+    .categories-container .category .main-img {
+      max-width: 100%; }
+    .categories-container .category .overlay {
+      width: 100%;
+      height: 50px;
+      position: relative;
+      bottom: 50px;
+      right: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5); }
+    .categories-container .category .title {
+      text-align: center;
+      font-size: 1.5em;
+      padding: 10px;
+      color: white; }
+    .categories-container .category:hover {
+      cursor: pointer; }
+
+@media (max-width: 800px) {
+  .categories-container {
+    /*width: 90%;*/ }
+    .categories-container .category {
+      /*width: 80%;*/ } }
 
 /*# sourceMappingURL=main.css.map */

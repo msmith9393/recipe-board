@@ -1,0 +1,45 @@
+
+.categories-container {
+  font-family: $font-family;
+  max-width: 1265px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto;
+  .category {
+    width: 400px;
+    margin: 10px;
+    margin-bottom: -40px;
+    .main-img {
+      max-width: 100%;
+    }
+    .overlay {
+      width: 100%;
+      height: 50px;
+      position: relative;
+      bottom: 50px;
+      right: 0;
+      left: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .title {
+      text-align: center;
+      font-size: 1.5em;
+      padding: 10px;
+      color: white;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+
+  .categories-container {
+    /*width: 90%;*/
+    .category {
+      /*width: 80%;*/
+    }
+  }
+}

@@ -9,7 +9,7 @@ class Header extends Component {
         <div className="search-bar">
           <input placeholder="search" className="search-input" />
           <div className="search-btn">
-            <img className="search-icon" src="/assets/icons/search.png" />
+            <img className="search-icon" src="/assets/icons/search.png" alt="search-icon" />
           </div>
         </div>
         <div className="login-btn">Login</div>
