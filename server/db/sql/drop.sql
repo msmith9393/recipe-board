@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2016-07-15 18:57:22.172
+-- Last modification date: 2016-07-18 21:05:11.727
 
 -- foreign keys
 ALTER TABLE categories_recipes
@@ -33,23 +33,23 @@ ALTER TABLE users_favorite_recipes
     DROP CONSTRAINT users_favorite_recipes_users;
 
 -- tables
-DROP TABLE categories CASCADE;
+DROP TABLE categories;
 
-DROP TABLE categories_recipes CASCADE;
+DROP TABLE categories_recipes;
 
-DROP TABLE ingredients_recipes CASCADE;
+DROP TABLE ingredients_recipes;
 
-DROP TABLE ratings CASCADE;
+DROP TABLE ratings;
 
-DROP TABLE recipes CASCADE;
+DROP TABLE recipes;
 
-DROP TABLE steps_recipes CASCADE;
+DROP TABLE steps_recipes;
 
-DROP TABLE users CASCADE;
+DROP TABLE users;
 
-DROP TABLE users_comments_recipes CASCADE;
+DROP TABLE users_comments_recipes;
 
-DROP TABLE users_favorite_recipes CASCADE;
+DROP TABLE users_favorite_recipes;
 
 -- End of file.
 

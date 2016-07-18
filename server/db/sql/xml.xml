@@ -94,7 +94,7 @@
             <Columns>
                 <Column Id="c2">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -166,7 +166,7 @@
             <Columns>
                 <Column Id="c5">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -229,7 +229,7 @@
             <Columns>
                 <Column Id="c16">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -274,7 +274,7 @@
             <Columns>
                 <Column Id="c18">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -319,7 +319,7 @@
             <Columns>
                 <Column Id="c23">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -373,7 +373,7 @@
             <Columns>
                 <Column Id="c27">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -427,7 +427,7 @@
             <Columns>
                 <Column Id="c32">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -472,7 +472,7 @@
             <Columns>
                 <Column Id="c36">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
@@ -526,7 +526,7 @@
             <Columns>
                 <Column Id="c50">
                     <Name>id</Name>
-                    <Type>int</Type>
+                    <Type>serial</Type>
                     <Description></Description>
                     <Nullable>false</Nullable>
                     <DefaultValue></DefaultValue>
